@@ -2,5 +2,24 @@
 {% block content %}
 
 <h1> Hello World!</h1>
+<br/>
+<br/>
+{% if api %}
+    {% if api == 'Error...' %}
+        Ticker symbol not found.  Please try again.
+    {% else %}
+
+        <h1>{{ api.companyName}}</h1>
+        Price: ${{ api.iexRealtimePrice }}<br/>
+        Previous Close: {{ api.previousClose }}<br/>
+        Market Cap: {{ api.marketCap }}<br/>
+        YTD Change: {{ api.ytdChange  }}<br/>
+        52 Week High: {{ api.week52High }}<br/>
+        52 Week Low: {{ api.week52Low  }}<br/>
+
+    
+    {% endif %}
+{% endif %}
+
 
 {% endblock %}
