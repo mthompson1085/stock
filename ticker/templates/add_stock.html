@@ -25,7 +25,7 @@
       </tr>
     </thead>
     <tbody>
-
+{% if ticker %}
     {% for item in ticker %}
     <tr>
         <th scope="row"> {{ item }}</th>
@@ -40,13 +40,18 @@
     {{ item }} - <a href="{% url 'delete' item.id %}">Delete Stock </a> <br/>
     {% endfor %}
 
+{% endif %}
+
     </tbody>
 </table>
 
 
 {% for item in ticker %}
     {{ item }} - <a href="{% url 'delete' item.id %}">Delete Stock </a> <br/>
-    {% endfor %}
+{% endfor %}
+
+<br/><br/>
+
 
 
 {% endblock %}
