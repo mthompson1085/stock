@@ -26,13 +26,13 @@ def home(request):
 def about (request):
     return  render(request, 'about.html', {})
 
-def add_stock (request):
+def add_stock(request):
     if request.method == 'POST':
-        form= StockForm(request.Post or None)
+        form = StockForm(request.POST or None)
 
         if form.is_valid():
             form.save()
-            message.success(request, ("Stock Has Been Added"))
+            messages.success(request, ("Stock Has Been Added"))
             return redirect ('add_stock')
     else:
         ticker = Stock.objects.all()
